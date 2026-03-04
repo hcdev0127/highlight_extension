@@ -98,3 +98,11 @@ function highlightPage() {
 }
 
 highlightPage();
+
+
+// Listen for extension icon click
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.action === "highlightAgain") {
+    highlightPage();
+  }
+});

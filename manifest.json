@@ -3,15 +3,27 @@
   "name": "Job Keyword Highlighter",
   "version": "1.0",
   "description": "Highlights remote and onsite job keywords on webpages.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_title": "Highlight job keywords"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": [
-        "https://*.linkedin.com/*",
-        "https://*.reed.co.uk/*",
         "<all_urls>"
       ],
-      "js": ["content.js"],
-      "css": ["styles.css"],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
       "run_at": "document_idle"
     }
   ]

@@ -79,6 +79,12 @@ async function sendToTab(message) {
   } return chrome.tabs.sendMessage(state.tabId, message);
 }
 
+chrome.action.onClicked.addListener((tab) => {
+  chrome.tabs.sendMessage(tab.id, {
+    action: "highlightAgain"
+  });
+});
+
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   (async () => {
     console.log(msg);
