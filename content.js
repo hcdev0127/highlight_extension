@@ -1,6 +1,8 @@
 const keywords = {
   green: [
-    "remote",
+    "remote"
+  ],
+  red: [
     "united kingdom",
     "UK"
   ],
@@ -31,6 +33,10 @@ function highlightText(node) {
     ...keywords.green.map(word => ({
       word,
       color: "green"
+    })),
+    ...keywords.red.map(word => ({
+      word,
+      color: "red"
     })),
     ...keywords.blue.map(word => ({
       word,
