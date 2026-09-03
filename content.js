@@ -11,6 +11,9 @@ const keywords = {
     "onsite",
     "on-site",
     "on site"
+  ],
+  secure: [
+    ""
   ]
 };
 
@@ -41,6 +44,10 @@ function highlightText(node) {
     ...keywords.blue.map(word => ({
       word,
       color: "blue"
+    })),
+    ...keywords.secure.map(word => ({
+      word,
+      color: "secure"
     }))
   ];
 
@@ -71,8 +78,16 @@ function highlightText(node) {
       item => item.word.toLowerCase() === match.toLowerCase()
     );
 
-    span.className = `job-highlight job-highlight-${keywordData.color}`;
-    span.textContent = match;
+    if (keywordData.color == "secure") {
+      span.textContent = match
+        .trim()
+        .split(/\s+/)
+        .map(word => word[0].toUpperCase())
+        .join(" ");;
+    } else {
+      span.className = `job-highlight job-highlight-${keywordData.color}`;
+      span.textContent = match;
+    }
 
     fragment.appendChild(span);
 
