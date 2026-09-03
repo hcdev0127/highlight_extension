@@ -3,6 +3,9 @@
   "name": "Job Keyword Highlighter",
   "version": "1.0",
   "description": "Highlights remote and onsite job keywords on webpages.",
+  "icons":{
+    "32": "icon.png"
+  },
   "permissions": [
     "activeTab",
     "scripting"
